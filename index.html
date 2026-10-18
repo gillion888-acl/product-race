@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>产品赛马场 · 每一轮都公开打分</title>
+    <meta name="description" content="多个产品原型同一套硬约束、同一套评分标准的公开看板：在线体验、评分卡、一页商业论证。最终标准只有一个——能不能卖出去。" />
+    <style>
+      :root {
+        --ink: #0f172a;
+        --ink-2: #475569;
+        --ink-3: #64748b;
+        --rule: #e2e8f0;
+        --rule-2: #cbd5e1;
+        --paper: #ffffff;
+        --desk: #f5f7fa;
+        --brand: #1e3a5f;
+        --ok: #146b33;
+        --r: 8px;
+        --mono: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+        --sans: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; background: var(--desk); color: var(--ink);
+        font: 15px/1.7 var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 40px 22px 64px; }
+      header { border-bottom: 2px solid var(--ink); padding-bottom: 20px; margin-bottom: 8px; }
+      h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: 0.2px; }
+      .lead { margin: 0; color: var(--ink-2); max-width: 62ch; font-size: 15px; }
+      .meta { margin: 14px 0 0; font: 12.5px/1.6 var(--mono); color: var(--ink-3); }
+
+      h2 { margin: 40px 0 6px; font-size: 17px; }
+      h2 .n { font: 700 12px/1 var(--mono); color: var(--brand); margin-right: 8px; }
+      .sub { margin: 0 0 16px; color: var(--ink-3); font-size: 13px; }
+      .rule { height: 1px; background: var(--rule); border: 0; margin: 40px 0 0; }
+
+      .round { margin: 0 0 26px; }
+      .cards { display: grid; gap: 14px; }
+      @media (min-width: 760px) { .cards { grid-template-columns: 1fr 1fr; } }
+
+      .card {
+        background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r);
+        padding: 16px 18px; display: flex; flex-direction: column; gap: 10px;
+      }
+      .card h3 { margin: 0; font-size: 16px; display: flex; align-items: baseline; gap: 8px; }
+      .card h3 .rank { font: 700 12px/1 var(--mono); color: var(--ink-3); }
+      .card p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+      .score { display: flex; align-items: baseline; gap: 6px; }
+      .score b { font: 700 22px/1 var(--mono); color: var(--brand); }
+      .score span { font-size: 12px; color: var(--ink-3); }
+      .rows { display: flex; flex-wrap: wrap; gap: 6px; }
+      .rows i { font-style: normal; font: 11.5px/1 var(--mono); color: var(--ink-2); border: 1px solid var(--rule); border-radius: 4px; padding: 4px 7px; }
+      .acts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2px; }
+      a.btn {
+        display: inline-block; text-decoration: none; font-size: 13px; padding: 7px 13px;
+        border: 1px solid var(--brand); border-radius: 6px; color: var(--brand);
+      }
+      a.btn.solid { background: var(--brand); color: #fff; }
+      a.btn:hover { opacity: 0.88; }
+      a.plain { color: var(--brand); }
+
+      table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+      th, td { border-top: 1px solid var(--rule); padding: 8px 10px; text-align: left; vertical-align: top; }
+      th { font-weight: 600; color: var(--ink-2); background: rgba(0,0,0,0.015); }
+      td.num { font-family: var(--mono); white-space: nowrap; }
+      tbody tr:hover td { background: rgba(30,58,95,0.03); }
+
+      ol.steps { margin: 8px 0 0; padding-left: 20px; color: var(--ink-2); font-size: 13.5px; }
+      ol.steps li { margin: 4px 0; }
+      footer { margin-top: 46px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--ink-3); font-size: 12.5px; }
+      code { font: 12px var(--mono); background: rgba(0,0,0,0.04); padding: 1px 5px; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>产品赛马场</h1>
+        <p class="lead">
+          多个产品原型各自从零实作，遵守同一套硬约束（纯静态、可离线、零构建、零 npm 依赖、成熟 UI 元件库本地内嵌），
+          由同一套九维度标准逐项打分。最终标准只有一个：<strong>能不能卖出去</strong>。
+        </p>
+        <p class="meta">6 个产品 · 384 项单元测试 · 全部可在线体验</p>
+      </header>
+
+      <h2><span class="n">01</span>第一轮 · 教育场景</h2>
+      <p class="sub">同一批评分标准下，看「谁付钱、付多少、第一单怎么拿」这三件事谁讲得最清楚。</p>
+      <div class="cards">
+        <div class="card">
+          <h3><span class="rank">🥇 87</span>课迹 CourseTrail</h3>
+          <p>资料不出校的课程问答：答案只从讲义原文挑句子、逐句标出处，无依据就拒答；按真实问答记录一键生成院系要收的备案材料包。</p>
+          <div class="score"><b>87</b><span>/ 100 · 第一轮第 1 名</span></div>
+          <div class="rows"><i>资料不出校</i><i>逐句出处</i><i>备案包导出</i><i>离线可用</i></div>
+          <div class="acts">
+            <a class="btn solid" href="https://gillion888-acl.github.io/coursetrail/">在线体验</a>
+            <a class="btn" href="https://github.com/gillion888-acl/coursetrail">代码仓库</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3><span class="rank">🥈 82.5</span>题盾 TopicShield</h3>
+          <p>把 AI 抄不了的作业设计出来：贴进现有作业要求，12 项可解释规则给出抗 AI 代写分数与逐条改写句，并导出作业包与评分规准。</p>
+          <div class="score"><b>82.5</b><span>/ 100 · 第一轮第 2 名</span></div>
+          <div class="rows"><i>12 项规则</i><i>只看终稿最多 35 分</i><i>规准生成</i><i>作业包导出</i></div>
+          <div class="acts">
+            <a class="btn solid" href="https://gillion888-acl.github.io/topicshield/">在线体验</a>
+            <a class="btn" href="https://github.com/gillion888-acl/topicshield">代码仓库</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3><span class="rank">🥉 79.5</span>捡分 Exam Sprint</h3>
+          <p>把课件变成会考你的题：题目与参考答案都是课件原文的字元切片，每题可跳回原文出处；批改用关键词覆盖率逐词解释，按章节诊断弱点。</p>
+          <div class="score"><b>79.5</b><span>/ 100 · 第一轮第 3 名</span></div>
+          <div class="rows"><i>原文切片出题</i><i>逐词批改</i><i>弱点诊断</i><i>冲刺计划</i></div>
+          <div class="acts">
+            <a class="btn solid" href="https://gillion888-acl.github.io/exam-sprint/">在线体验</a>
+            <a class="btn" href="https://github.com/gillion888-acl/exam-sprint">代码仓库</a>
+          </div>
+        </div>
+        <div class="card" style="border-style:dashed">
+          <h3><span class="rank">—</span>本轮结论</h3>
+          <p>技术最强的没有赢。工程最完整的「捡分」输在选了一个免费大厂正在打的赛道；赢的「课迹」卖的不是问答功能，而是<strong>院系能收、能核、能存档的交付物</strong>。</p>
+        </div>
+      </div>
+
+      <h2><span class="n">02</span>第二轮 · 非教育场景</h2>
+      <p class="sub">换成「不付钱就会直接损失钱」的场景：买方都是个人或小老板，决策链最短。</p>
+      <div class="cards">
+        <div class="card">
+          <h3>标前自检 BidCheck</h3>
+          <p>投标截止前把可能被否决的条目逐条查出来：要求录入与自动切分、5 套行业模板、卡点分级、可签字存档的自检报告与整改清单。</p>
+          <div class="rows"><i>16 条风险规则</i><i>红色卡点置顶</i><i>报告＋整改清单</i><i>离线可用</i></div>
+          <div class="acts">
+            <a class="btn solid" href="https://gillion888-acl.github.io/bid-check/">在线体验</a>
+            <a class="btn" href="https://github.com/gillion888-acl/bid-check">代码仓库</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>车间质检本 Shopfloor QC</h3>
+          <p>车间没有网络也要能一笔记下来：检查项模板、离线逐笔记录、超限当场判定并开异常单、按批号追溯、日报周报与 CSV 导出。</p>
+          <div class="rows"><i>三级存储降级</i><i>超限整行反白</i><i>异常闭环</i><i>零外部请求</i></div>
+          <div class="acts">
+            <a class="btn solid" href="https://gillion888-acl.github.io/shopfloor-qc/">在线体验</a>
+            <a class="btn" href="https://github.com/gillion888-acl/shopfloor-qc">代码仓库</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>交屋证据包 MoveIn Proof</h3>
+          <p>入住花 10 分钟按房间留证，每张照片盖时间戳与 SHA-256 指纹；退租一键比对差异，生成押金返还主张书。零上传、免注册。</p>
+          <div class="rows"><i>指纹哈希链</i><i>入住／退租比对</i><i>主张书导出</i><i>手机优先</i></div>
+          <div class="acts">
+            <a class="btn solid" href="https://gillion888-acl.github.io/move-in-proof/">在线体验</a>
+            <a class="btn" href="https://github.com/gillion888-acl/move-in-proof">代码仓库</a>
+          </div>
+        </div>
+        <div class="card" style="border-style:dashed">
+          <h3>为什么开这一轮</h3>
+          <p>上一轮三匹马都落在教育场景——那是被第一个分析对象锚定的结果。这一轮刻意换成校园之外、买方更具体的场景，用来检验「痛感强度」与「决策链长度」对成不成得了生意的影响。</p>
+        </div>
+      </div>
+
+      <hr class="rule" />
+
+      <h2><span class="n">03</span>评分标准（九维度 · 满分 100）</h2>
+      <table>
+        <thead><tr><th style="width:34%">维度</th><th style="width:10%">权重</th><th>看什么</th></tr></thead>
+        <tbody>
+          <tr><td>产品选题</td><td class="num">15</td><td>痛点是真实、是否已被占满、时机对不对、有没有外部证据</td></tr>
+          <tr><td>产品方向</td><td class="num">10</td><td>定位是否锐利、差异化撑不撑得住「为什么不用免费的」</td></tr>
+          <tr><td>产品能力</td><td class="num">15</td><td>核心能力深度、可解释性、边界与退化处理</td></tr>
+          <tr><td>产品质量</td><td class="num">10</td><td>可用性、完成度、空／载入／错误态、响应式、键盘</td></tr>
+          <tr><td>产品代码</td><td class="num">10</td><td>分层、纯函数、零依赖、测试与断言、可维护</td></tr>
+          <tr><td>代码描述精确性</td><td class="num">10</td><td>命名与注释、文档与实现是否一致、有无占位与残留</td></tr>
+          <tr><td>市场</td><td class="num">15</td><td>买方是否具体、定价是否有支撑、第一单是否可执行</td></tr>
+          <tr><td>GitHub 传播面</td><td class="num">10</td><td>描述、topics、README 排版、截图、体验入口、授权</td></tr>
+          <tr><td>风险与诚实度</td><td class="num">5</td><td>是否主动揭露「看起来有但没验证」的部分</td></tr>
+        </tbody>
+      </table>
+
+      <h2><span class="n">04</span>怎么审核这些产品</h2>
+      <ol class="steps">
+        <li>打开任意产品的<strong>在线体验</strong>，点首屏那颗主按钮（每个产品都有「用示例数据试一次」），十秒内能看到核心价值。</li>
+        <li>看它的<strong>常见问题</strong>与已知限制——每个产品都在 README 里主动写了自己的边界与做不到的事。</li>
+        <li>读 <code>pitch.md</code>（一页商业论证）：目标客户、替代做法与成本、定价、第一单怎么拿。</li>
+        <li>读 <code>SCORECARD.md</code>：这份看板上每一匹马的九维度得分与依据。</li>
+      </ol>
+
+      <footer>
+        所有产品均为独立实作，未包含任何第三方产品的代码或素材；示例资料与文档模板为原创内容。
+        产品文档与界面为简体中文。评分与审核由产品负责人执行。
+      </footer>
+    </div>
+  </body>
+</html>
