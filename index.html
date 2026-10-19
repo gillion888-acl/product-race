@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>产品赛马场 · 每一轮都公开打分</title>
-    <meta name="description" content="多个产品原型同一套硬约束、同一套评分标准的公开看板：在线体验、评分卡、一页商业论证。最终标准只有一个——能不能卖出去。" />
+    <title>产品对照看板 · 同一套标准的逐项对照</title>
+    <meta name="description" content="多个产品原型同一套硬约束、同一套评分标准的公开看板：在线体验、评分依据、一页商业论证。最终标准只有一个——能不能卖出去。" />
     <style>
       :root {
         --ink: #0f172a;
@@ -77,21 +77,21 @@
   <body>
     <div class="wrap">
       <header>
-        <h1>产品赛马场</h1>
+        <h1>产品对照看板</h1>
         <p class="lead">
           多个产品原型各自从零实作，遵守同一套硬约束（纯静态、可离线、零构建、零 npm 依赖、成熟 UI 元件库本地内嵌），
           由同一套九维度标准逐项打分。最终标准只有一个：<strong>能不能卖出去</strong>。
         </p>
-        <p class="meta">6 个产品 · 384 项单元测试 · 全部可在线体验</p>
+        <p class="meta">6 个产品 · 376 项单元测试 · 全部可在线体验</p>
       </header>
 
       <h2><span class="n">01</span>第一轮 · 教育场景</h2>
       <p class="sub">同一批评分标准下，看「谁付钱、付多少、第一单怎么拿」这三件事谁讲得最清楚。</p>
       <div class="cards">
         <div class="card">
-          <h3><span class="rank">🥇 87</span>课迹 CourseTrail</h3>
+          <h3><span class="rank">87 分</span>课迹 CourseTrail</h3>
           <p>资料不出校的课程问答：答案只从讲义原文挑句子、逐句标出处，无依据就拒答；按真实问答记录一键生成院系要收的备案材料包。</p>
-          <div class="score"><b>87</b><span>/ 100 · 第一轮第 1 名</span></div>
+          <div class="score"><b>87</b><span>/ 100</span></div>
           <div class="rows"><i>资料不出校</i><i>逐句出处</i><i>备案包导出</i><i>离线可用</i></div>
           <div class="acts">
             <a class="btn solid" href="https://gillion888-acl.github.io/coursetrail/">在线体验</a>
@@ -99,9 +99,9 @@
           </div>
         </div>
         <div class="card">
-          <h3><span class="rank">🥈 82.5</span>题盾 TopicShield</h3>
+          <h3><span class="rank">82.5 分</span>题盾 TopicShield</h3>
           <p>把 AI 抄不了的作业设计出来：贴进现有作业要求，12 项可解释规则给出抗 AI 代写分数与逐条改写句，并导出作业包与评分规准。</p>
-          <div class="score"><b>82.5</b><span>/ 100 · 第一轮第 2 名</span></div>
+          <div class="score"><b>82.5</b><span>/ 100</span></div>
           <div class="rows"><i>12 项规则</i><i>只看终稿最多 35 分</i><i>规准生成</i><i>作业包导出</i></div>
           <div class="acts">
             <a class="btn solid" href="https://gillion888-acl.github.io/topicshield/">在线体验</a>
@@ -109,9 +109,9 @@
           </div>
         </div>
         <div class="card">
-          <h3><span class="rank">🥉 79.5</span>捡分 Exam Sprint</h3>
+          <h3><span class="rank">79.5 分</span>捡分 Exam Sprint</h3>
           <p>把课件变成会考你的题：题目与参考答案都是课件原文的字元切片，每题可跳回原文出处；批改用关键词覆盖率逐词解释，按章节诊断弱点。</p>
-          <div class="score"><b>79.5</b><span>/ 100 · 第一轮第 3 名</span></div>
+          <div class="score"><b>79.5</b><span>/ 100</span></div>
           <div class="rows"><i>原文切片出题</i><i>逐词批改</i><i>弱点诊断</i><i>冲刺计划</i></div>
           <div class="acts">
             <a class="btn solid" href="https://gillion888-acl.github.io/exam-sprint/">在线体验</a>
@@ -156,7 +156,7 @@
         </div>
         <div class="card" style="border-style:dashed">
           <h3>为什么开这一轮</h3>
-          <p>上一轮三匹马都落在教育场景——那是被第一个分析对象锚定的结果。这一轮刻意换成校园之外、买方更具体的场景，用来检验「痛感强度」与「决策链长度」对成不成得了生意的影响。</p>
+          <p>上一轮三个产品都落在教育场景——那是被第一个分析对象锚定的结果。这一轮刻意换成校园之外、买方更具体的场景，用来检验「痛感强度」与「决策链长度」对成不成得了生意的影响。</p>
         </div>
       </div>
 
@@ -183,7 +183,7 @@
         <li>打开任意产品的<strong>在线体验</strong>，点首屏那颗主按钮（每个产品都有「用示例数据试一次」），十秒内能看到核心价值。</li>
         <li>看它的<strong>常见问题</strong>与已知限制——每个产品都在 README 里主动写了自己的边界与做不到的事。</li>
         <li>读 <code>pitch.md</code>（一页商业论证）：目标客户、替代做法与成本、定价、第一单怎么拿。</li>
-        <li>读 <code>SCORECARD.md</code>：这份看板上每一匹马的九维度得分与依据。</li>
+        <li>读仓库里的品质自评：九维度得分与依据。</li>
       </ol>
 
       <footer>
